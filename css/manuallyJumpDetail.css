@@ -1,0 +1,35 @@
+span#placeOfDeparture,span#destination {
+    width: 47%;
+    border-bottom: 0.026667rem solid #F7F7F7;
+    box-sizing: border-box;
+}
+span#destination{
+	text-align: right;
+}
+i.stockCodeIcon,i.taxSavingsIcon {
+    display: inline-block;
+    width: 1.333333rem;
+    height: 100%;
+    background: url(../img/contactadd@2x.png) no-repeat center;
+    background-size: 0.32rem 0.32rem;
+}
+@media  (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+   i.stockCodeIcon,i.taxSavingsIcon {
+       background: url("../img/contactadd@3x.png") no-repeat center; 
+       background-size: 0.32rem 0.32rem;
+    }
+}
+span.stockCode,span.taxSavings {
+    flex: 1;
+    text-align: right;
+}
+span.returnbackTotalMoney {
+    font-size: 15px;
+    color: #2DBBFA;
+}
+li.userInputMesgItem.specialUserInputMesgItem {
+    padding-right: 0;
+}
+.userInputMesgItem span:last-child{
+	color: #333;
+}

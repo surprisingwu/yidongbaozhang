@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/font-icons.css">
+    <link rel="stylesheet" href="../css/iuapmobile.um.css">
+    <link rel="stylesheet" href="../css/addForm.css">
+    <script src="../js/summer.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/Frameworks/iuapmobile.frameworks.ui.js"></script>
+    <script type="text/javascript" src="../js/knockout.js"></script>
+    <script type="text/javascript" src="../js/Frameworks/iuapmobile.frameworks.listview.js"></script>
+    <script src="../js/doT.min.js"></script>
+    <script src="../js/addForm.js"></script>
+    <script src="../js/adaptive.js"></script>
+</head>
+<body>
+<div class="addFormPage">
+    <header>
+        <span class="turnBackArrow"></span>
+        <h3 class="header-title">差旅费报销 <i class="headerTitleIconWraper"></i></h3>
+        <span class="accessory">附件</span>
+    </header>
+    <div class="userMesgForm">
+        <ul class="userMesgFormWraper">
+            <li class="userMesgFormItem">
+                <span class="userMesgFormItemText">日期</span>
+                <span class="userMesgFormItemContent userMesgTime">2017-03-20</span>
+            </li>
+            <li class="userMesgFormItem">
+                <span class="userMesgFormItemText">事由</span>
+                <input type="text" placeholder="请输入报销事由(必填)" class="userMesgFormItemInput userMesgIncident">
+            </li>
+            <li class="userMesgFormItem">
+                <span class="userMesgFormItemText">收支项目</span>
+                <input type="text" placeholder="请输入收支项目(必填)" class="userMesgFormItemInput userMesgFnancialAccount">
+            </li>
+            <li class="userMesgFormItem">
+                <span class="userMesgFormItemText">报销人</span>
+                <span class="userMesgFormItemContent userMesgName">王晶</span>
+            </li>
+            <li class="userMesgFormItem">
+                <span class="userMesgFormItemText">报销人账号</span>
+                <span class="userMesgFormItemContent userMesgNum">602000677712</span>
+            </li>
+        </ul>
+    </div>
+    <div class="longTransferWraper">
+        <div class="publicNav">
+            <span class="publicTitle">长途交通费</span>
+            <span class="publicArrow"></span>
+            <span class="publicMoney">￥0.00</span>
+        </div>
+        <ul class="addMesgDetailContainer um-list">
+
+        </ul>
+        <div class="addMesgDetailWraper">
+            <span class="addMesgDetailBtnHandler">新增详情<i class="addMesgDetailBtnHandlerIcon"></i></span>
+        </div>
+
+    </div>
+    <div class="getAccommodationWrper">
+        <div class="publicNav">
+            <span class="publicTitle">住宿费总计</span>
+            <span class="publicArrow"></span>
+            <span class="publicMoney">￥0.00</span>
+        </div>
+        <ul class="getAccommodationContainer">
+
+        </ul>
+        <div class="addMesgDetailWraper">
+            <span class="addMesgDetailBtnHandler">新增详情<i class="addMesgDetailBtnHandlerIcon"></i></span>
+        </div>
+    </div>
+    <div class="btnWraper">
+        <span class="reimbursableAmount">报销金额：</span>&nbsp;
+        <span class="moneyAcount">￥0.00</span>
+        <button class="saveBtn">保存草稿</button>
+        <button class="confirmBtn">提交</button>
+    </div>
+</div>
+<div class="inputTypeTotast" style="display: none">
+    <div class="inputTypeTotastContainer">
+        <ul class="inputTypeTotastWraper">
+            <li class="inputTypeTotastItem" inputType="manuallyJump"><span class="inputTypeTotastItemText">手动录入详情</span>
+            </li>
+            <li class="inputTypeTotastItem" inputType="optionConsumptionJump"><span class="inputTypeTotastItemText">选择消费记录</span>
+            </li>
+        </ul>
+        <button class="cancelBtn">取消</button>
+    </div>
+</div>
+<div class="selectTuenBackMonryType" style="display: none">
+    <div class="clickHideHandler"></div>
+    <div class="selectTuenBackMonryWraper">
+        <div class="selectTuenBackMonryRow">
+            <div class="selectTuenBackMonryItem">
+                <a href="javascript:void(0);" class="selectTuenBackMonryListItem">
+                    <div class="selectTuenBackMonryContent">
+                        <i class="selectTuenBackMonryIconWraper"></i>
+                        <span class="selectTuenBackMonryIconText">差旅费</span>
+                    </div>
+                </a>
+            </div>
+            <div class="selectTuenBackMonryItem">
+                <a href="javascript:void(0);" class="selectTuenBackMonryListItem">
+                    <div class="selectTuenBackMonryContent">
+                        <i class="selectTuenBackMonryIconWraper jiaotongfei"></i>
+                        <span class="selectTuenBackMonryIconText">交通费</span>
+                    </div>
+                </a>
+            </div>
+            <div class="selectTuenBackMonryItem">
+                <a href="javascript:void(0);" class="selectTuenBackMonryListItem">
+                    <div class="selectTuenBackMonryContent">
+                        <i class="selectTuenBackMonryIconWraper tongxunfei"></i>
+                        <span class="selectTuenBackMonryIconText">通讯费</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="selectTuenBackMonryRow">
+            <div class="selectTuenBackMonryItem">
+                <a href="javascript:void(0);" class="selectTuenBackMonryListItem">
+                    <div class="selectTuenBackMonryContent">
+                        <i class="selectTuenBackMonryIconWraper giftCostVal"></i>
+                        <span class="selectTuenBackMonryIconText">礼品费</span>
+                    </div>
+                </a>
+            </div>
+            <div class="selectTuenBackMonryItem">
+                <a href="javascript:void(0);" class="selectTuenBackMonryListItem">
+                    <div class="selectTuenBackMonryContent">
+                        <i class="selectTuenBackMonryIconWraper entertainmentExpense"></i>
+                        <span class="selectTuenBackMonryIconText">招待费</span>
+                    </div>
+                </a>
+            </div>
+            <div class="selectTuenBackMonryItem">
+                <a href="javascript:void(0);" class="selectTuenBackMonryListItem">
+                    <div class="selectTuenBackMonryContent">
+                        <i class="selectTuenBackMonryIconWraper conferenceExpense"></i>
+                        <span class="selectTuenBackMonryIconText">会议费</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="selectTuenBackMonryRow">
+            <div class="selectTuenBackMonryItem">
+                <a href="javascript:void(0);" class="selectTuenBackMonryListItem">
+                    <div class="selectTuenBackMonryContent">
+                        <i class="selectTuenBackMonryIconWraper GeneralFee"></i>
+                        <span class="selectTuenBackMonryIconText">通用报销</span>
+                    </div>
+                </a>
+            </div>
+            <div class="selectTuenBackMonryItem">
+                <a href="javascript:void(0);" class="selectTuenBackMonryListItem">
+                    <div class="selectTuenBackMonryContent">
+                        <!--<i class="selectTuenBackMonryIconWraper"></i>-->
+                        <!--<span class="selectTuenBackMonryIconText">差旅费</span>-->
+                    </div>
+                </a>
+            </div>
+            <div class="selectTuenBackMonryItem">
+                <a href="javascript:void(0);" class="selectTuenBackMonryListItem">
+                    <div class="selectTuenBackMonryContent">
+                        <!--<i class="selectTuenBackMonryIconWraper"></i>-->
+                        <!--<span class="selectTuenBackMonryIconText">差旅费</span>-->
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="longTranferListview" type="text/x-dot-template">
+    {{if (it.length>0){}}
+    {{for(var i = 0; i < it.length; i++) {}}
+    <li class="um-listview-row unapproval-listview-row">
+        <a class="um-list-item">
+            <div class="um-list-item-inner">
+                <div class="um-list-item-body" style="padding-right:0">
+                    <div class="clearfix">
+                        <div class="unapproval-list-item-left">
+                            <p class="unapproval-list-item-message">{{=it[i].transferType}}</p>
+                            <p class="unapproval-list-item-name">{{=it[i].time}}</p>
+                        </div>
+                        <div class="unapproval-list-item-middle">
+                            <p class="unapproval-list-item-time">{{=it[i].position}}</p>
+                            <p class="unapproval-list-item-money">￥ {{=it[i].money}}</p>
+                        </div>
+                        <div class="unapproval-list-item-right">
+                            <i class="unapproval-list-right-item-arrow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+
+    {{}}}
+    {{}}}
+</script>
+</body>
+</html>

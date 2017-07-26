@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/font-icons.css">
+		<link rel="stylesheet" href="css/iuapmobile.um.css">
+		<link rel="stylesheet" href="css/index.css">
+		<script src="js/summer.js" ></script>
+		<script src="js/jquery.min.js" ></script>
+		<script src="js/Frameworks/iuapmobile.frameworks.ui.js" ></script>
+		<script type="text/javascript" src="./js/knockout.js"></script>
+		<script type="text/javascript" src="./js/Frameworks/iuapmobile.frameworks.listview.js"></script>
+		<script src="js/adaptive.js"></script>
+		<script src="js/doT.min.js"></script>
+		<script src="js/index.js" ></script>
+	</head>
+	<body>
+	<div class="wraper">
+		<div class="headerSty">
+			<header>
+				<span class="turnBackArrow"></span>
+				<h3 class="header-title">审批</h3>
+				<span class="addHandler">新增</span>
+				<span class="checkHandler">查询</span>
+			</header>
+			<nav>
+				<ul class="navWraper">
+					<li class="navItem"><span class="unapproval  active">未完成</span></li>
+					<li class="navItem"><span class="approval">已完成</span></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="um-listview-wrap" id="listview" style="display: block">
+				<div class="listviewStateList">
+					<span class="listviewStateListTitle">草稿（2）</span>
+					<span class="listviewStateListTitleArrow"></span>
+				</div>
+				<ul class="unapprovalList um-list" style="display: block">
+
+				</ul>
+				<div class="listviewStateList">
+					<span class="listviewStateListTitle">已提交（4）</span>
+					<span class="listviewStateListTitleArrow"></span>
+				</div>
+				<ul class="submitted um-list" style="display: block">
+
+				</ul>
+			</div>
+		<div class="um-listview-wrap" id="approalListview" style="display: none">
+			<ul class="um-list approvalList">
+				</ul>
+		</div>
+	</div>
+	<script id="unapproval" type="text/x-dot-template">
+		{{if (it.length>0){}}
+		{{for(var i = 0; i < it.length; i++) {}}
+		<li class="um-listview-row unapproval-listview-row">
+			<a class="um-list-item um-swipe-action um-no-icon">
+				<div class="um-swipe-btns unapproval-list-btn">
+					<span class="um-swipe-btn um-list-reject">删除</span>
+				</div>
+				<div class="um-list-item-inner">
+					<div class="um-list-item-body" style="padding-right:0">
+						<div class="clearfix">
+							<div class="unapproval-list-item-left">
+								<p class="unapproval-list-item-message">{{=it[i].detail}}</p>
+								<p class="unapproval-list-item-name">{{=it[i].name}}</p>
+							</div>
+							<div class="unapproval-list-item-middle">
+								<p class="unapproval-list-item-time">{{=it[i].time}}</p>
+								<p class="unapproval-list-item-money">￥{{=it[i].money}}</p>
+							</div>
+							<div class="unapproval-list-item-right">
+								<i class="unapproval-list-right-item-arrow"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</a>
+		</li>
+
+		{{}}}
+		{{}}}
+	</script>
+	<script id="submitted" type="text/x-dot-template">
+		{{if (it.length>0){}}
+		{{for(var i = 0; i < it.length; i++) {}}
+		<li class="um-listview-row unapproval-listview-row">
+			<a class="um-list-item um-swipe-action um-no-icon">
+				<div class="um-swipe-btns unapproval-list-btn">
+					<span class="um-swipe-btn um-list-remind-approval">提醒审批</span>
+					<span class="um-swipe-btn um-list-take-back">收回</span>
+				</div>
+				<div class="um-list-item-inner">
+					<div class="um-list-item-body" style="padding-right:0">
+						<div class="clearfix">
+							<div class="unapproval-list-item-left">
+								<p class="unapproval-list-item-message">{{=it[i].detail}}</p>
+								<p class="unapproval-list-item-name">{{=it[i].name}}</p>
+							</div>
+							<div class="unapproval-list-item-middle">
+								<p class="unapproval-list-item-time">{{=it[i].time}}</p>
+								<p class="unapproval-list-item-money">￥{{=it[i].money}}</p>
+							</div>
+							<div class="unapproval-list-item-right">
+								<i class="unapproval-list-right-item-arrow"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</a>
+		</li>
+
+		{{}}}
+		{{}}}
+	</script>
+	<script id="approval" type="text/x-dot-template">
+        {{if (it.length>0){}}
+        {{for(var i = 0; i < it.length; i++) {}}
+        <li class="um-listview-row approval-list-row">
+            <a class="um-list-item um-swipe-action um-no-icon">
+				<i class="stateIconWraper"></i>
+                <div class="um-swipe-btns unapproval-list-btn">
+                    <span class="um-swipe-btn um-list-copy-documents">复制单据</span>
+                    <span class="um-swipe-btn um-list-process">流程</span>
+                </div>
+                <div class="um-list-item-inner">
+                    <div class="um-list-item-body" style="padding-right:0">
+                        <div class="clearfix">
+                            <div class="approval-list-item-left">
+                                <p class="approval-list-item-message">{{=it[i].detail}}</p>
+                                <p class="approval-list-item-name">{{=it[i].name}}</p>
+                            </div>
+                            <div class="approval-list-item-middle">
+                                <p class="approval-list-item-time">{{=it[i].time}}</p>
+                                <p class="approval-list-item-money">{{=it[i].oddNumber}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        {{}}}
+        {{}}}
+	</script>
+	</body>
+</html>
